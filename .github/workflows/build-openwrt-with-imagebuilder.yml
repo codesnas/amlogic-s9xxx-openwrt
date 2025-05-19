@@ -277,11 +277,14 @@ jobs:
           sudo mkfs.xfs /dev/github/runner
           sudo mkdir -p /builder
           sudo mount /dev/github/runner /builder
+          sudo mkdir -p /builder/runners
+          [[ -d "/home/runner/runners" ]] && {
+              sudo cp -a /home/runner/runners /builder/runners
+              sudo rm -rf /home/runner/runners
+          }
+          sudo ln -s /builder/runners /home/runner/runners 2>/dev/null
           sudo chown -R runner.runner /builder
-          sudo cp -a /home/runner/runners /builder/runners
-          sudo rm -rf /home/runner/runners
-          sudo ln -s /builder/runners /home/runner/runners
-          df -Th
+          df -hT
 
       - name: Build OpenWrt Rootfs [ ${{ inputs.releases_branch }} ]
         id: imagebuilder
