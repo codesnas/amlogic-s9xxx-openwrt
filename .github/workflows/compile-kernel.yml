@@ -77,6 +77,11 @@ on:
         options:
           - -ophub
           - -yourname
+      delete_source:
+        description: "Delete the source after compilation"
+        required: false
+        default: true
+        type: boolean
 
 env:
   TZ: America/New_York
@@ -156,6 +161,7 @@ jobs:
           kernel_sign: ${{ inputs.kernel_sign }}
           kernel_toolchain: ${{ inputs.kernel_toolchain }}
           compress_format: ${{ inputs.compress_format }}
+          delete_source: ${{ inputs.delete_source }}
 
       - name: Upload Kernel to Release
         uses: ncipollo/release-action@main
@@ -164,6 +170,8 @@ jobs:
           tag: kernel_stable
           artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
           allowUpdates: true
+          removeArtifacts: false
+          replacesArtifacts: true
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             The kernel can be used to compile Armbian and OpenWrt.
