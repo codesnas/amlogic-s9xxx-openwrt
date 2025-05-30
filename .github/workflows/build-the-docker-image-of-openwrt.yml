@@ -27,6 +27,7 @@ on:
         type: choice
         options:
           - ophub/openwrt-armv8:latest
+          - ophub/openwrt-aarch64:latest
 
 env:
   TZ: America/New_York
@@ -35,7 +36,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04-arm
     if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
 
     steps:
@@ -67,11 +68,6 @@ jobs:
           chmod +x ${MAKE_DOCKER_SH}
           ${MAKE_DOCKER_SH}
           echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Set up QEMU
-        id: qemu
-        if: ${{ steps.make.outputs.status }} == 'success' && !cancelled()
-        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         id: buildx
