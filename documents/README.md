@@ -508,7 +508,7 @@ Refer to the [parameter instructions](../README.md#gitHub-actions-input-paramete
 
 ### 10.3 Customizing Banner Information
 
-The default [/etc/banner](../openwrt-files/common-files/etc/banner) information is as follows, you can use a [banner generator](https://www.bootschool.net/ascii) to customize your own personalized banner information (the style below is `slant`), just overwrite the file with the same name.
+The default [/etc/banner](../openwrt-files/common-files/etc/banner) information is as follows, you can use a [banner generator](https://www.bootschool.net/ascii) to customize your own personalized banner information (the style below is `slant`). Use the method described in `10.5.2` to add a custom banner and other OpenWrt files when building OpenWrt.
 
 ```shell
      ____                 _       __     __        __    ___    ____

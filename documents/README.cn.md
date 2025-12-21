@@ -503,7 +503,7 @@ REPO_BRANCH: openwrt-21.02
 
 ### 10.3 自定义 banner 信息
 
-默认的 [/etc/banner](../openwrt-files/common-files/etc/banner) 信息如下，你可以使用 [banner 生成器](https://www.bootschool.net/ascii) 定制专属自己的个性化 banner 信息（下面的样式为 `slant`），覆盖同名文件即可。
+默认的 [/etc/banner](../openwrt-files/common-files/etc/banner) 信息如下，你可以使用 [banner 生成器](https://www.bootschool.net/ascii) 定制专属自己的个性化 banner 信息（下面的样式为 `slant`）。使用 `10.5.2` 的方法可以在制作 OpenWrt 时添加自定义 banner 以及其他 OpenWrt 文件。
 
 ```shell
      ____                 _       __     __        __    ___    ____
