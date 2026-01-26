@@ -152,7 +152,7 @@ create_partition() {
         done
     fi
     echo -e "${INFO} Remove the current bootloader."
-    dd if=/dev/zero of=${DEV_EMMC} bs=1M count=16 conv=fsync
+    #dd if=/dev/zero of=${DEV_EMMC} bs=1M count=16 conv=fsync
 
     # Set partition size (Unit: MiB)
     BLANK1="16"
